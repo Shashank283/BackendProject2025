@@ -3,6 +3,7 @@ package com.scaler.productservicefeb2025.controllers;
 import com.scaler.productservicefeb2025.exceptions.ProductNotFoundException;
 import com.scaler.productservicefeb2025.models.Product;
 import com.scaler.productservicefeb2025.services.ProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -15,14 +16,14 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
     private ProductService productService;
-    public ProductController(ProductService productService) {
+    public ProductController(@Qualifier("selfDBProductService") ProductService productService) {
         this.productService = productService;
     }
 
 
-
+    //http://localhost:8081/products/1
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable("id") int id) throws ProductNotFoundException {
+    public Product getProductById(@PathVariable("id") Long id) throws ProductNotFoundException {
       /*  ResponseEntity<Product> responseEntity = null;
         try {
             responseEntity = new ResponseEntity<>(
@@ -46,6 +47,29 @@ public class ProductController {
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
+
+    @PostMapping()
+    public Product createProduct(@RequestBody Product product) {
+        return null; //productService.createProduct(product);
+    }
+
+    @PatchMapping("/{id}")
+    public Product updateProduct(@PathVariable("id") Long productId,
+                                 @RequestBody Product product) {
+        return null;
+    }
+
+    @PutMapping("/{id}")
+    public Product replaceProduct(@PathVariable("id") Long productId,
+                                  @RequestBody Product product) throws ProductNotFoundException {
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable("id") Long id) {
+    return ;
+    }
+
 
     // Instead of returning from GlobalExceptionHandler now Exception will return output from here....
 

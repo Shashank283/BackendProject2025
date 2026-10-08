@@ -1,8 +1,6 @@
 package com.scaler.productservicefeb2025.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +12,8 @@ public class Product extends BaseModel{
     private float price;
     private String description;
     private String image;
-    @ManyToOne   // outer to inner --> Product to Category
+    @ManyToOne(cascade = CascadeType.REMOVE)   // outer to inner --> Product to Category
+    @JoinColumn
     private Category category;
 
 
