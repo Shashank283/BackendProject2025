@@ -16,9 +16,11 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST);
     }
 
-    // Global exception handling for all type
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleException(Exception ex) {
-        return null;
-    }
+    // Global exception handling for all type -- This wiltake care of all the Exceptions
+
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<String> handleException(Exception ex) {
+//
+//        return null;
+//    }
 }

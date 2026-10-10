@@ -12,6 +12,6 @@ import lombok.Setter;
 @MappedSuperclass
 public class BaseModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto Increment
     private Long id;
 }

@@ -22,10 +22,10 @@ public class FakeStoreProductService implements ProductService {
     private Product convertFakeStoreProductDtoToProduct(FakeStoreProductDto fakeStoreProductDto){
         Product product = new Product();
         product.setId(fakeStoreProductDto.getId());
-        product.setName(fakeStoreProductDto.getTitle());
-        product.setPrice(fakeStoreProductDto.getPrice());
+        product.setTitle(fakeStoreProductDto.getTitle());
+        product.setPrice((double) fakeStoreProductDto.getPrice());
         product.setDescription(fakeStoreProductDto.getDescription());
-        product.setImage(fakeStoreProductDto.getImage());
+        product.setImageUrl(fakeStoreProductDto.getImage());
         Category category = new Category();
         category.setName(fakeStoreProductDto.getCategory());
         product.setCategory(category);
@@ -75,6 +75,21 @@ public class FakeStoreProductService implements ProductService {
 
         return products;
 
+
+    }
+
+    @Override
+    public Product createProduct(Product product) {
+        return null;
+    }
+
+    @Override
+    public Product replaceProduct(Long productId, Product product) {
+        return null;
+    }
+
+    @Override
+    public void deleteProduct(Long productId) throws ProductNotFoundException {
 
     }
 }

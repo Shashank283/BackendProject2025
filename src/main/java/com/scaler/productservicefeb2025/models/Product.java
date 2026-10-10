@@ -8,12 +8,13 @@ import lombok.Setter;
 @Setter
 @Entity(name = "products")
 public class Product extends BaseModel{
-    private String name;
-    private float price;
+    private String title;
+    private Double price;
     private String description;
-    private String image;
-    @ManyToOne(cascade = CascadeType.REMOVE)   // outer to inner --> Product to Category
-    @JoinColumn
+    private String imageUrl;
+    @ManyToOne   // outer to inner --> Product to Category
+
+
     private Category category;
 
 
