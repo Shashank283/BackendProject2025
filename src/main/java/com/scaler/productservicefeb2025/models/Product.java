@@ -13,8 +13,6 @@ public class Product extends BaseModel{
     private String description;
     private String imageUrl;
     @ManyToOne   // outer to inner --> Product to Category
-
-
     private Category category;
 
 
